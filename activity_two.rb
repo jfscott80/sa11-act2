@@ -22,7 +22,7 @@ puts valid_password?("pass")
 # activity 3
 # find all numeric values in a string
 def find_numbers(text)
-  pattern = nil
+  pattern = /\d+\D{1}\d+/
   text.scan(pattern)
 end
 
@@ -32,7 +32,7 @@ puts find_numbers("The order was placed for 100.25 units at a price of 20.75 eac
 # activity 4
 # match dates in the format YYYY-MM-DD.
 def valid_date?(date)
-  pattern = nil
+  pattern = /\d{4}-\d{2}-\d{2}/
   date.match?(pattern)
 end
 
@@ -43,7 +43,7 @@ puts valid_date?("15-03-2023")
 # match log entries beginning with a severity level
 # (INFO, WARN, or ERROR), followed by a message
 def parse_log_entry(log)
-  pattern = nil
+  pattern = /([A-Z]+.)(.*\b)/
   match = log.match(pattern)
   [match[1], match[2]] if match
 end
